@@ -1,0 +1,286 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: rgba(147, 242, 188, 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.encabezado {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(172, 153, 191, 1);
+    height: 80px;
+    color: white;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: normal;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegura que el encabezado esté por encima de otros elementos */
+    letter-spacing: 3px;
+
+}
+
+.logo {
+    max-height: 70px;
+    margin: 0 20px 0 20px;
+}
+
+.encabezado input {
+    margin-left: 30px;
+    height: 30px;
+    width: 300px;
+    border: solid 1px white;
+    padding-left: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.lupa {
+    width: 30px;
+    background: white;
+    border: solid 1px white;
+    cursor: pointer;
+    border-left: 1px solid rgb(214, 214, 214);
+    padding-left: 4px;
+    border-radius: 0 10px 10px 0;
+}
+
+#botonCarrito,
+#botonVolver {
+    height: 40px;
+    margin: 0 20px 0 20px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#botonCarrito:hover,
+#botonVolver:hover {
+
+    transform: scale(1.2);
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    align-content: start;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 60px auto;
+    padding: 20px;
+    flex: 1;
+}
+
+#contenedorBusqueda {
+    margin-top: 5px;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 600;
+
+}
+
+#contenedorProductos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+
+}
+
+.tarjetaProducto {
+    margin: 10px;
+    padding: 10px;
+    height: 380px;
+    width: 204px;
+    border: 2px solid rgba(242, 121, 121, 1);
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(242, 195, 109, 1);
+    color: black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.tarjetaProducto img {
+    display: block;
+    height: 200px;
+    width: 200px;
+
+    border-radius: 10px;
+    border: 2px rgba(242, 121, 121, 1) solid;
+}
+
+.tarjetaProducto h3 {
+    padding: 0 0 0 5px;
+    text-align: left;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tarjetaProducto h4 {
+    padding: 0 0 0 5px;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+.tarjetaProducto button {
+    height: 30px;
+    width: 150px;
+    border: 2px solid rgba(242, 121, 121, 1);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(242, 121, 121, 1);
+    cursor: pointer;
+}
+
+.tarjetaProducto button:hover {
+    background: rgba(147, 242, 188, 1);
+}
+
+.sinStock {
+    background: #D3D3D3;
+    border: black;
+
+}
+
+.sinStock img {
+    opacity: 0.9;
+    border: black;
+}
+
+.oculto {
+    display: none !important;
+}
+
+#contenedorCarrito {
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgba(242, 121, 121, 1);
+    background: rgba(242, 195, 109, 1);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+#contenedorCarrito h2 {
+    text-align: center;
+    font-size: xx-large;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+
+.tarjetaProductoCarrito {
+    display: grid;
+    margin: 10px;
+    height: 60px;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr minmax(60px, auto);
+    gap: 10px;
+    padding: 5px;
+    border: 2px solid rgba(242, 121, 121, 1);
+    border-radius: 10px;
+    align-items: center;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.tarjetaProductoCarrito p:nth-child(2) {
+    text-align: left;
+}
+
+.tarjetaProductoCarrito p:nth-child(3),
+.tarjetaProductoCarrito p:nth-child(5) {
+    text-align: right;
+}
+
+.tarjetaProductoCarrito p:nth-child(6) {
+    cursor: pointer;
+}
+
+.unidades {
+    display: flex;
+    align-items: center;
+}
+
+#dec,
+#inc {
+    max-width: 20px;
+}
+
+.miniatura {
+    border: 2px solid rgba(242, 121, 121, 1);
+    border-radius: 10px;
+}
+
+.basura {
+    cursor: pointer;
+}
+
+.tarjetaProductoCarrito img {
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.tarjetaProductoCarrito .unidades button {
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+
+}
+
+.totalCompra {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background: rgba(147, 242, 188, 1);
+    justify-content: space-between;
+    align-items: center;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.totalCompra button {
+    height: 60px;
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background: green;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+footer {
+
+    display: flex;
+    background: rgba(172, 153, 191, 1);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
