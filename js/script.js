@@ -38,7 +38,6 @@ function renderizarProductos(productos) {
     let inputBusqueda = document.getElementById("inputBusqueda").value
     let contenedorBusqueda = document.getElementById("contenedorBusqueda")
     contenedorBusqueda.innerHTML = `<h4>${inputBusqueda}</h4>`
-    console.log(inputBusqueda)
 
     let contenedorProductos = document.getElementById("contenedorProductos")
     contenedorProductos.innerHTML = ``
@@ -57,18 +56,19 @@ function renderizarProductos(productos) {
         <h4>${nombre} ${genero}<br>${categoria}</h4>
         <h3>$${precio.toLocaleString()}</h3>
         <h4>${stock === 0 ? "Sin stock" : `Stock disponible: ${stock}`}</h4>
-        <button id=botonCarrito${id} class=${stock === 0 ? "oculto" : ""}>Agregar al carrito</button>
+        <button id=botonAgregarAlCarrito${id} class=${stock === 0 ? "oculto" : ""}>Agregar al carrito</button>
         `
         contenedorProductos.appendChild(tarjetaProducto)
 
-        let botonAgregarAlCarrito = document.getElementById("botonCarrito" + id)
+        let botonAgregarAlCarrito = document.getElementById("botonAgregarAlCarrito" + id)
         botonAgregarAlCarrito.addEventListener("click", (e) => agregarProductoAlCarrito(e, productos))
     })
 }
 
 function agregarProductoAlCarrito(e, productos) {
     let carrito = carritoLS()
-    let idDelProducto = Number(e.target.id.substring(12))
+    console.log(carrito)
+    let idDelProducto = Number(e.target.id.substring(21))
     let posProductoEnCarrito = carrito.findIndex((producto) => producto.id === Number(idDelProducto))
     let productoBuscado = productos.find((producto) => producto.id === Number(idDelProducto))
 
@@ -167,13 +167,12 @@ function renderizarCarrito() {
     <p>Total de la compra: $${totalCompra}</p> 
     <button id=comprar class=${totalCompra == 0 ? "oculto" : ""}>Finalizar compra</button>
     `
-    /* <button id=comprar>Finalizar compra</button> */
-    /* <button id=botonCarrito${id} class=${stock === 0 ? "oculto" : ""}>Agregar al carrito</button> */
     contenedorCarrito.appendChild(totalDiv)
 
     let botonComprar = document.getElementById("comprar")
 
     botonComprar.addEventListener("click", finalizarCompra)
+    console.log(carrito)
 }
 
 function calcularTotalCompra(carrito) {
